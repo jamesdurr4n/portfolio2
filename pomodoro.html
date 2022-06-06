@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> StudBud - Pomodoro timer </title>
+  <link rel="stylesheet" href="../CSS/style.css" type="text/css">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div>
+    <iframe style="border-radius:12px" class="spotify" src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+</div>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-palette icon'></i>
+      <div class="logo_name">StudBud</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="index.html">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Task List</span>
+        </a>
+        <span class="tooltip">Task List</span>
+      </li>
+      <li>
+        <a href="kanban.html">
+          <i class='bx bxs-dashboard'></i>
+          <span class="links_name">Kanban Board</span>
+        </a>
+        <span class="tooltip">Kanban Board</span>
+      </li>
+      <li>
+        <a href="stopwatch.html">
+          <i class='bx bx-stopwatch'></i>
+          <span class="links_name">Stopwatch</span>
+        </a>
+        <span class="tooltip">Stopwatch</span>
+      </li>
+      <li>
+        <a href="music.html">
+          <i class='bx bx-music'></i>
+          <span class="links_name">Music</span>
+        </a>
+        <span class="tooltip">Music</span>
+      </li>
+      <li>
+        <a href="readinglist.html">
+          <i class='bx bx-book-open'></i>
+          <span class="links_name">Reading List</span>
+        </a>
+        <span class="tooltip">Reading List</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Pomodoro Timer -->
+  <!-- The Pomodoro Timer visually fills up as time passes. When the Pomodoro circle timer is full, it is break time for the user. The user can also choose their break times, after doing 4 short breaks the user can choose a long break-->
+<section class="home-section-pomodoro">
+ 
+  <div id="pomodoro-app">
+    <div id="container-pomodoro">
+      <div id="timer">
+        <div id="time">
+          <span id="minutes">25</span>
+          <span id="colon">:</span>
+          <span id="seconds">00</span>
+        </div>
+        <div id="filler"></div>
+      </div>
+  
+      <div id="buttons">
+        <button id="start"><i class='bx bx-play'></i></button>
+        <button id="stop"><i class='bx bx-stop' ></i></button>
+        <br>
+        <button id="shortBreak">Short Break</button>
+        <button id="longBreak">Long Break</button>
+        <br>
+        <div class="buttons2">
+          <a href="stopwatch.html">
+          <button id="stopwatch" onclick="stopwatch()">STOPWATCH</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+  let sidebar = document.querySelector(".sidebar");
+  let closeBtn = document.querySelector("#btn");
+  let searchBtn = document.querySelector(".bx-search");
+
+  closeBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    menuBtnChange();
+  });
+
+  searchBtn.addEventListener("click", () => { // Sidebar opens when you click on the search icon
+    sidebar.classList.toggle("open");
+    menuBtnChange(); 
+  });
+
+  // Icon change with sidebar open/close
+  function menuBtnChange() {
+    if (sidebar.classList.contains("open")) {
+      closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+    } else {
+      closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+  }
+</script>
+  <script src="../JS/pomodoro.js"></script>
+</body>
+
+</html>
